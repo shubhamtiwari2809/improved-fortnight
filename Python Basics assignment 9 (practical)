@@ -1,0 +1,118 @@
+Assignment 9 python basics (practical)
+
+
+1:
+
+
+def disarium(num):
+    num = str(num)
+    l = []
+    for i in range(len(num)):
+        ss = int(num[i])**(i+1)
+        l.append(ss)
+    if sum(l)==int(num):
+        return '{} is a disarium number'.format(num)
+    else:
+        return '{} is not a disarium number'.format(num)
+        
+2:
+
+
+def disariumlist(startingnumber, endingnumber):
+    
+    dis_list = []
+    
+    while startingnumber <= endingnumber:
+        empty_list = []
+        startingnumber = str(startingnumber)
+        for i in range(len(startingnumber)):
+            ss = int(startingnumber[i])**(i+1)
+            empty_list.append(ss)
+        if sum(empty_list)==int(startingnumber):
+            dis_list.append(int(startingnumber))
+        
+        startingnumber = int(startingnumber) + 1
+        
+    return dis_list
+    
+
+3:
+
+
+def happy(num):
+    num = str(num)
+    m = num
+    while True:
+        empty_list = []
+        for i in range(len(m)):
+            ss = int(m[i])**2
+            empty_list.append(ss)
+        
+        if sum(empty_list)==1:
+            return '{} is a happy number'.format(num)
+            break
+        elif (len(str(sum(empty_list)))==1) and (sum(empty_list)!=1):
+            return '{} is not a happy number'.format(num)
+            break
+        else:
+            m = str(sum(empty_list))
+            
+
+4:
+
+
+def happylist(startnumber,endnumber):
+    happyno_list = [] 
+    while startnumber <= endnumber:
+        m = str(startnumber)
+        
+        while True:
+            empty_list = []
+            for i in range(len(m)):
+                ss = int(m[i])**2
+                empty_list.append(ss)
+            if sum(empty_list)==1:
+                happyno_list.append(startnumber)
+                startnumber += 1
+                break
+            elif (len(str(sum(empty_list)))==1) and (sum(empty_list)!=1):
+                startnumber += 1
+                break
+            else:
+                m = str(sum(empty_list))
+                
+    return happyno_list
+    
+    
+    
+5:
+
+
+def harshad(num):
+    
+    empty_list = []
+    num = str(num)
+    if int(num)>0:
+        for i in range(len(num)):
+            ss = int(num[i])
+            empty_list.append(ss)
+        if int(num)%sum(empty_list)==0:
+            return '{} is a harshad number'.format(num)
+        else:
+            return '{} is not a harshad number'.format(num)
+    else:
+        return '{} is not a harshad number'.format(num)
+        
+        
+6:
+
+
+def pronic(start=1,end=9):
+    
+    l = []
+    while start <= end:
+        n = start
+        ss = ((n)*(n+1))
+        l.append(ss)
+        start += 1
+    return l
